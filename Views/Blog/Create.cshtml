@@ -1,0 +1,17 @@
+﻿<!-- Create & Edit.cshtml -->
+@model Blog_System.Models.BlogPost
+<div class="container mt-5">
+    <h1>@(ViewContext.RouteData.Values["action"].ToString() == "Create" ? "Create New Post" : "Edit Post")</h1>
+    <form asp-action="@(ViewContext.RouteData.Values["action"].ToString())" method="post" class="mt-4">
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input asp-for="Title" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Content</label>
+            <textarea asp-for="Content" class="form-control" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
